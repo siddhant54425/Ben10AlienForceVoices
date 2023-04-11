@@ -1,0 +1,65 @@
+html{
+    font-size: 10px;
+    background: url('output-onlinepngtools.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Happy Monkey', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+.img_alien
+{
+    max-width: 80%;
+    height: 60%;
+}
+
+.keys
+{
+    display: flex;
+    flex:1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.key{
+    border: .4rem solid black;
+    border-radius: .8rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem 1rem .5rem;
+    transition:all 0.5s ease;
+    width: 12rem;
+    height: 18rem;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 0.5rem rgb(17, 207, 17);
+}
+
+.playing
+{
+    transform: scale(1.5);
+    border-color: rgb(19, 229, 19);
+    box-shadow: 0 0 1rem rgb(6, 48, 6);
+}
+
+kbd
+{
+    display: block;
+    font-size: 4rem;
+}
+
+.sound
+{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+}

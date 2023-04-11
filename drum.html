@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="drumstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Poppins:ital,wght@1,700&display=swap" rel="stylesheet">
+    <title>Drum</title>
+</head>
+<body>
+    <iframe id="myAudio" hidden src="ben10ultimatealien.mp3" allow="autoplay"></iframe>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <img src="bg image/pngwing.com.png" class="img_alien">
+            <kbd>A</kbd>
+            <span class="sound">Swampfire</span>
+        </div>
+        
+        <div data-key="83" class="key">
+            <img src="bg image/Spidermonkey_UAF.webp" class="img_alien">
+            <kbd>S</kbd>
+            <span class="sound">SpiderMonkey</span>
+        </div>
+        
+        <div data-key="68" class="key">
+            <img src="bg image/lodestar_af_ua.png" class="img_alien">
+            <kbd>D</kbd>
+            <span class="sound">Lodestar</span>
+        </div>
+        
+        <div data-key="70" class="key">
+            <img src="bg image/jetray.png" class="img_alien">
+            <kbd>F</kbd>
+            <span class="sound">Jetray</span>
+        </div>
+        
+        <div data-key="71" class="key">
+            <img src="bg image/Big_Chill.webp" class="img_alien">
+            <kbd>G</kbd>
+            <span class="sound">Bigchill</span>
+        </div>
+        
+        <div data-key="72" class="key">
+            <img src="bg image/Alien_X.webp" class="img_alien">
+            <kbd>H</kbd>
+            <span class="sound">AlienX</span>
+        </div>
+        
+        <div data-key="74" class="key">
+            <img src="bg image/chromastone.png" class="img_alien">
+            <kbd>J</kbd>
+            <span class="sound">Chromastone</span>
+        </div>
+        
+        <div data-key="75" class="key">
+            <img src="bg image/pngfind.com-goop-png-3440861.png" class="img_alien">
+            <kbd>K</kbd>
+            <span class="sound">Goop</span>
+        </div>
+        
+        <div data-key="76" class="key">
+            <img src="bg image/pngfind.com-ben-10-png-1905165.png" class="img_alien">
+            <kbd>L</kbd>
+            <span class="sound">Humangasaur</span>
+        </div>
+    </div>
+
+    <audio data-key="65" src="sounds benten/swampfire.mp3"></audio>
+    <audio data-key="83" src="sounds benten/spidermonkey.mp3"></audio>
+    <audio data-key="68" src="sounds benten/lonestar.mp3"></audio>
+    <audio data-key="70" src="sounds benten/Jetray.mp3"></audio>
+    <audio data-key="71" src="sounds benten/bigchill.mp3"></audio>
+    <audio data-key="72" src="sounds benten/alienX.mp3"></audio>
+    <audio data-key="74" src="sounds benten/chromastone.mp3"></audio>
+    <audio data-key="75" src="sounds benten/goop.mp3"></audio>
+    <audio data-key="76" src="sounds benten/humangasaur.mp3"></audio>
+
+    <script>
+
+        function playsound(event)
+        {
+           const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+           const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+           if(!audio)
+           {
+            return;
+           }
+           audio.currentTime = 0;
+           audio.play();
+           key.classList.add('playing');
+        };
+        
+        function removeTransition(event)
+        {
+            if(event.propertyName != 'transform')
+            {
+                return;
+            }
+            this.classList.remove('playing')
+        }
+
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+        window.addEventListener('keydown', playsound);
+
+        document.getElementById("myAudio").loop = true;
+    </script>
+</body>
+</html>
